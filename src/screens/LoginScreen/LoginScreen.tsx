@@ -25,7 +25,7 @@ export default () => {
 	return (
 		<View style={styles.outerContainer}>
 			<SpacerInline height={140} />
-			<Title text="I am a donor." />
+			<Title text="I am a client." />
 			<SpacerInline height={40} />
 
 			<InputLabel text="Email Address" />
