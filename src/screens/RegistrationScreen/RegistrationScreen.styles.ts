@@ -9,13 +9,13 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
   },
   input: {
-    height: 28,
-    marginBottom: 14,
-    paddingLeft: 10,
+      height: 28,
+      marginBottom: 14,
+      paddingLeft: 10,
   },
   text: {
-    fontFamily: 'open-sans-light',
-    fontSize: 14,
-    color: colors.NAVY_BLUE,
+      fontFamily: 'open-sans-light',
+      fontSize: 14,
+      color: colors.NAVY_BLUE,
   },
 });
