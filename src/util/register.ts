@@ -2,35 +2,37 @@ import railsAxios from './railsAxios';
 import { AsyncStorage } from 'react-native';
 
 interface RegisterProps {
-	organizationName: string;
-	email: string;
-	password: string;
-	license: string;
-	street: string;
-	city: string;
-	state: string;
-	zip: number;
+  businessName: string;
+  email: string;
+  password: string;
+  license: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: number;
+  img: string;
 }
 
 export default async ({
-	organizationName, email, password, license, street, city, state, zip,
+ email, password, businessName, license, street, city, state, zip, img
 }: RegisterProps) => {
 	const response = await railsAxios.post('/donors/create', JSON.stringify({
-		donor: {
-			email,
-			password,
-			organization_name: organizationName,
-			business_license: license,
-			address_street: street,
-			address_city: city,
-			address_zip: zip,
-			address_state: state,
-		},
-	}));
-	
-	response.data
-		? await AsyncStorage.setItem('jwt', response.data.jwt)
-		: await AsyncStorage.removeItem('jwt');
+      donor: {
+        email,
+        password,
+        business_name: businessName,
+        business_license: license,
+        address_street: street,
+        address_city: city,
+        address_zip: zip,
+        address_state: state,
+        img
+      },
+    }));
 
-	return response.request.status || 'Error';
+  response.data
+    ? await AsyncStorage.setItem('jwt', response.data.jwt)
+    : await AsyncStorage.removeItem('jwt');
+
+return response.request.status || 'Error';
 };
